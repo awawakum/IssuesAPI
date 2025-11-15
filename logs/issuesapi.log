@@ -1,0 +1,133 @@
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:45:35 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:45:35 - uvicorn.error - INFO - Started server process [28328]
+2025-11-15 06:45:35 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-15 06:45:35 - uvicorn.error - INFO - Application startup complete.
+2025-11-15 06:46:10 - uvicorn.error - INFO - Shutting down
+2025-11-15 06:46:10 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-15 06:46:10 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-15 06:46:10 - uvicorn.error - INFO - Finished server process [28328]
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:46:11 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:46:11 - uvicorn.error - INFO - Started server process [25256]
+2025-11-15 06:46:11 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-15 06:46:11 - uvicorn.error - INFO - Application startup complete.
+2025-11-15 06:46:21 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:46:21 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues
+2025-11-15 06:46:21 - sqlalchemy.engine.Engine - INFO - [generated in 0.00040s] ()
+2025-11-15 06:46:21 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:46:32 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:46:32 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.status = ?
+2025-11-15 06:46:32 - sqlalchemy.engine.Engine - INFO - [generated in 0.00043s] ('1',)
+2025-11-15 06:46:32 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:46:50 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:46:50 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.status = ?
+2025-11-15 06:46:50 - sqlalchemy.engine.Engine - INFO - [cached since 18.28s ago] ('2',)
+2025-11-15 06:46:50 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:47:14 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:47:14 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.status = ?
+2025-11-15 06:47:14 - sqlalchemy.engine.Engine - INFO - [cached since 42.77s ago] ('in_progress',)
+2025-11-15 06:47:14 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:48:02 - routing.issue - INFO - API: create_issue payload=text='4' status='open' source='operator'
+2025-11-15 06:48:02 - services.issue - INFO - Service: create_issue called
+2025-11-15 06:48:02 - repositories.issue - INFO - Creating new issue: text='4' status='open' source='operator'
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - INSERT INTO issues (text, status, source) VALUES (?, ?, ?) RETURNING id, created_at, updated_at
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - [generated in 0.00042s] ('4', 'open', 'operator')
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - SELECT issues.id, issues.text, issues.status, issues.source, issues.created_at, issues.updated_at 
+FROM issues 
+WHERE issues.id = ?
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - [generated in 0.00035s] (4,)
+2025-11-15 06:48:02 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:48:52 - routing.issue - INFO - API: update_issue id=4 payload=text='4' status='in_progress' source='operator'
+2025-11-15 06:48:52 - services.issue - INFO - Service: update_issue id=4
+2025-11-15 06:48:52 - repositories.issue - INFO - Updating issue id=4 with text='4' status='in_progress' source='operator'
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.id = ?
+ LIMIT ? OFFSET ?
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - [generated in 0.00031s] (4, 1, 0)
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - UPDATE issues SET status=?, updated_at=CURRENT_TIMESTAMP WHERE issues.id = ?
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - [generated in 0.00045s] ('in_progress', 4)
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - SELECT issues.id, issues.text, issues.status, issues.source, issues.created_at, issues.updated_at 
+FROM issues 
+WHERE issues.id = ?
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - [cached since 49.77s ago] (4,)
+2025-11-15 06:48:52 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:49:07 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:49:07 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues
+2025-11-15 06:49:07 - sqlalchemy.engine.Engine - INFO - [cached since 165.9s ago] ()
+2025-11-15 06:49:07 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:49:23 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:49:23 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.id = ?
+ LIMIT ? OFFSET ?
+2025-11-15 06:49:23 - sqlalchemy.engine.Engine - INFO - [cached since 30.99s ago] (1, 1, 0)
+2025-11-15 06:49:23 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:51:33 - uvicorn.error - INFO - Shutting down
+2025-11-15 06:51:33 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-15 06:51:33 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-15 06:51:33 - uvicorn.error - INFO - Finished server process [25256]
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - PRAGMA main.table_info("issues")
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-11-15 06:51:34 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:51:34 - uvicorn.error - INFO - Started server process [23296]
+2025-11-15 06:51:34 - uvicorn.error - INFO - Waiting for application startup.
+2025-11-15 06:51:34 - uvicorn.error - INFO - Application startup complete.
+2025-11-15 06:51:47 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:51:47 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues
+2025-11-15 06:51:47 - sqlalchemy.engine.Engine - INFO - [generated in 0.00450s] ()
+2025-11-15 06:51:47 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:52:03 - routing.issue - INFO - API: delete_issue id=4
+2025-11-15 06:52:03 - services.issue - INFO - Service: delete_issue id=4
+2025-11-15 06:52:03 - repositories.issue - INFO - Deleting issue id=4
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues 
+WHERE issues.id = ?
+ LIMIT ? OFFSET ?
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00044s] (4, 1, 0)
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - DELETE FROM issues WHERE issues.id = ?
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00037s] (4,)
+2025-11-15 06:52:03 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-11-15 06:52:34 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-11-15 06:52:34 - sqlalchemy.engine.Engine - INFO - SELECT issues.id AS issues_id, issues.text AS issues_text, issues.status AS issues_status, issues.source AS issues_source, issues.created_at AS issues_created_at, issues.updated_at AS issues_updated_at 
+FROM issues
+2025-11-15 06:52:34 - sqlalchemy.engine.Engine - INFO - [cached since 46.55s ago] ()
+2025-11-15 06:52:34 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-11-15 06:55:10 - uvicorn.error - INFO - Shutting down
+2025-11-15 06:55:10 - uvicorn.error - INFO - Waiting for application shutdown.
+2025-11-15 06:55:10 - uvicorn.error - INFO - Application shutdown complete.
+2025-11-15 06:55:10 - uvicorn.error - INFO - Finished server process [23296]
