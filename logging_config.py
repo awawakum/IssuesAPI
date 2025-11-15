@@ -64,6 +64,7 @@ def setup_logging() -> None:
             "uvicorn": {"handlers": list(handlers.keys()), "level": level, "propagate": False},
             "uvicorn.error": {"handlers": list(handlers.keys()), "level": level, "propagate": False},
             "uvicorn.access": {"handlers": [k for k in handlers.keys() if k == "console"], "level": "INFO", "propagate": False},
+            "watchfiles": {"handlers": list(handlers.keys()), "level": "WARNING", "propagate": False},
             "sqlalchemy.engine": {
                 "handlers": list(handlers.keys()),
                 "level": "INFO" if getattr(settings, "DATABASE_ECHO", False) else "WARNING",
@@ -78,3 +79,4 @@ def setup_logging() -> None:
 
 def get_logger(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
