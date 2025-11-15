@@ -119,15 +119,15 @@ class IssueRepository:
         if updated_issue.source is not None:
             issue.source = updated_issue.source
 
-        if len(updated_issue.text) > 128:
+        if len(issue.text) > 128:
             logger.error("Issue text too long: %s", issue.text)
             return None
 
-        if updated_issue.status not in ["open", "in_progress", "closed"]:
+        if issue.status not in ["open", "in_progress", "closed"]:
             logger.error("Invalid issue status: %s", issue.status)
             return None
         
-        if updated_issue.source not in ["operator", "monitoring", "partner"]:
+        if issue.source not in ["operator", "monitoring", "partner"]:
             logger.error("Invalid issue source: %s", issue.source)
             return None
 
@@ -142,3 +142,4 @@ class IssueRepository:
             created_at=issue.created_at,
             updated_at=issue.updated_at,
         )
+
