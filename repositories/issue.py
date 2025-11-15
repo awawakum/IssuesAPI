@@ -31,6 +31,23 @@ class IssueRepository:
     def create_issue(self, issue: IssueCreate) -> Issue:
         """Create a new issue"""
         logger.info("Creating new issue: %s", issue)
+
+        if not issue.text or not issue.status or not issue.source:
+            logger.error("Invalid issue data: %s", issue)
+            return None
+        
+        if len(issue.text) > 128:
+            logger.error("Issue text too long: %s", issue.text)
+            return None
+
+        if issue.status not in ["open", "in_progress", "closed"]:
+            logger.error("Invalid issue status: %s", issue.status)
+            return None
+
+        if issue.source not in ["operator", "monitoring", "partner"]:
+            logger.error("Invalid issue source: %s", issue.source)
+            return None
+
         db_issue = IssueModel(
             text=issue.text,
             status=issue.status,
@@ -101,6 +118,18 @@ class IssueRepository:
             issue.status = updated_issue.status
         if updated_issue.source is not None:
             issue.source = updated_issue.source
+
+        if len(updated_issue.text) > 128:
+            logger.error("Issue text too long: %s", issue.text)
+            return None
+
+        if updated_issue.status not in ["open", "in_progress", "closed"]:
+            logger.error("Invalid issue status: %s", issue.status)
+            return None
+        
+        if updated_issue.source not in ["operator", "monitoring", "partner"]:
+            logger.error("Invalid issue source: %s", issue.source)
+            return None
 
         self.db.commit()
         self.db.refresh(issue)
