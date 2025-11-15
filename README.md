@@ -268,7 +268,7 @@ python add_test_data.py
 |------|-----|---------|
 | id | int | Уникальный идентификатор |
 | text | string | Описание issue (макс. 128 символов) |
-| status | string | Статус issue (open / close / in-porocess) |
+| status | string | Статус issue (open / close / in_progress) |
 | source | string | Источник issue (operator / monitoring / partner) |
 | created_at | datetime | Время создания |
 | updated_at | datetime | Время последнего обновления |
